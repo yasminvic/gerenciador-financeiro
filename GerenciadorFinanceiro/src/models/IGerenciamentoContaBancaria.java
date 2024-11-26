@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public interface IGerenciamentoContaBancaria {
@@ -8,7 +9,5 @@ public interface IGerenciamentoContaBancaria {
 
     public void incluir(MovimentoFinanceiro movimentoFinanceiro);
 
-    public double consultarSaldoAtual();
-
-    public double consultarSaldoPeriodo();
+    public double consultarSaldo(LocalDate data);
 }

@@ -51,43 +51,6 @@ public class ContaBancaria implements IGerenciamentoContaBancaria {
         }
     }
 
-    /**
-     * calcula o valor com base nos movimentos até a data atual
-     * @return retorna o valor considerando só os movimentos até a data atual
-     */
-    @Override
-    public double consultarSaldoAtual() {
-        double valor = 0;
-        for (MovimentoFinanceiro movi : movimentoFinanceiro) {
-
-            if (movi.getData().compareTo(LocalDate.now()) <= 0) {
-                if (movi instanceof Despesa) {
-                    valor -= movi.getValor();
-                } else {
-                    valor += movi.getValor();
-                }
-            }
-        }
-        return valor;
-    }
-
-    /**
-     * calcula o valor considerando todos os movimentos cadastrados
-     * @return retorna o valor
-     */
-    @Override
-    public double consultarSaldoPeriodo() {
-        double valor = 0;
-        for (MovimentoFinanceiro movi : movimentoFinanceiro) {
-            if (movi instanceof Despesa) {
-                valor -= movi.getValor();
-            } else {
-                valor += movi.getValor();
-            }
-        }
-        return valor;
-    }
-    
     public double consultarSaldo(LocalDate dataFiltro) {
     	double valor = 0;
         for (MovimentoFinanceiro movi : movimentoFinanceiro) {
