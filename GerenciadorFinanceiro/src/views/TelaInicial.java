@@ -384,7 +384,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				txtAreaListagem.setText("");
 				
-				var listaMovimentos = conta.listar();
+				ArrayList<MovimentoFinanceiro> listaMovimentos = conta.listar();			
 				ArrayList<MovimentoFinanceiro> listaAux = new ArrayList<>();	
 				String texto = "";
 				
@@ -401,6 +401,11 @@ public class TelaInicial extends JFrame {
 					else if(movimentoFinanceiro instanceof Receita && rdbtnReceitaListar.isSelected()) {
 						listaAux.add(movimentoFinanceiro);
 					}
+				}
+				
+				if(listaAux.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Não há registros cadastrados.", "Sem registros", JOptionPane.INFORMATION_MESSAGE);
+					return;
 				}
 				
 				
