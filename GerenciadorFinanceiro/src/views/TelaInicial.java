@@ -374,8 +374,12 @@ public class TelaInicial extends JFrame {
 					txtValor.setText("");
 					
 					JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-		        }catch(Exception ex){
+		        }catch(NumberFormatException ex) {
+		        	JOptionPane.showMessageDialog(null, "Campo Valor preenchido incorretamente. É aceito apenas números, e se conter casas decimais, utilizar ponto(.) para separar.", "Erro", JOptionPane.ERROR_MESSAGE);
+		        }		        
+		        catch(Exception ex){
 		        	JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
 		        }				
 			}
 		});
