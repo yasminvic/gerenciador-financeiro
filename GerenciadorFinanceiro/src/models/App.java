@@ -35,10 +35,7 @@ public class App {
         String textoData = "01/01/2024";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(textoData, formatter);
-
-        Double valor = conta.consultarSaldoAtual();
-        valor = conta.consultarSaldoPeriodo();
-
+        
         var teste = conta.listar();
     }
 }
