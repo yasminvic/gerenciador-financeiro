@@ -1,9 +1,12 @@
 package models;
 
 import models.enums.Categoria;
+
+import java.awt.event.FocusAdapter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.sql.DatabaseMetaData;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,6 +54,11 @@ public class ContaBancaria implements IGerenciamentoContaBancaria {
         }
     }
 
+    /**
+     * filtra o saldo com base na data informada
+     * @param dataFiltro data na qual será feito o filtro
+     * @return o valor
+     */
     public double consultarSaldo(LocalDate dataFiltro) {
     	double valor = 0;
         for (MovimentoFinanceiro movi : movimentoFinanceiro) {
